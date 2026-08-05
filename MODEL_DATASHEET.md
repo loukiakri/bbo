@@ -48,7 +48,13 @@ The timeframe of the project was 12 weeks. One evaluation per week for each func
 
 ### Strategy
 
-4444444444444444444444444444444444444
+The optimisation strategy evolved within the duration of the project.
+
+Early rounds focused on exploration of the design space targeting reduction of overall uncertainty in the model fit. Later rounds transitioned into exploitation of the promising regions that were being progressively identified. 
+
+The transition point was different for each function depending on function dimensionality, the outputs of each round and model fit metrics. 
+
+---
 
 ## 4. Preprocessing & Uses
 
