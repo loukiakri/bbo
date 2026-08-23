@@ -108,7 +108,16 @@ The approach evolved significantly over the course of the project focusing on tw
 Given the constraints of the project (query budget) and the dataset (very few initial observations) it was evident that the methodology developed had to cater to sparse sets that vary in dimensionality. 
 This realisation was the main reason/motivation for switching from the scikit-learn library to the BOtorch library enabling fully Bayesian inference, that has clear advantages on problems of this nature. 
 
-A detailed model evolution description of the implementation changes from each round is available in the MODEL_EVOLUTION document.
-* 📄 **[Model Evolution]( MODEL_EVOLUTION.md)** - Details on model evolution
+A detailed model evolution description of the implementation changes from each round is available in the  📄 **[Model Evolution]( MODEL_EVOLUTION.md)**  document.
+
+The final BoTorch based model includes:
+-	Hyperparameter marginalisation
+-	Proper priors (Distributions over hyperparameter values)
+-	Differentiable acquisition functions that are gradient optimised
+-	A library of acquisition functions EI, UCB, PI, Thompson sampling
+-	Leave-One-Out and k-fold cross validation for assessing model fit
+-	Capability of defining an exclusion zone or trust region via setting a minimum distance from existing points or area bounds
+-	Advanced plotting techniques for visualising the design space such as 2D slice contour plots, Parallel coordinate plots and PCA projections
+-	Next candidate reports detailing mean, std, distance from best/min distance, cross evaluation score
 
 ### Strategy (Exploration VS Exploitation)
