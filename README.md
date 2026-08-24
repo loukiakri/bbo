@@ -121,3 +121,38 @@ The final BoTorch based model includes:
 -	Next candidate reports detailing mean, std, distance from best/min distance, cross evaluation score
 
 ### Strategy (Exploration VS Exploitation)
+
+---
+
+## Installation
+
+### Requirements
+
+The project is built primarily using:
+- Python
+- PyTorch
+- BoTorch
+- GPyTorch
+- NumPy
+- SciPy
+- Matplotlib
+- Sci-kit learn
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/loukiakri/bbo.git
+cd bbo
+```
+### Create a Virtual Environment
+
+---
+## Results
+
+### Optimisation Performance
+
+---
+
+## Future Work
+
+Potential extensions include:
