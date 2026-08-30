@@ -165,7 +165,7 @@ An extensive number of metrics is being reviewed and reported throughout the opt
 
 ## Results
 
-The optimisation results for all functions are summarised in the table below.
+The optimisation results for all functions are summarised in the table below:
 
 | Function | Dimensions | Initial Observations Best | Optimisation Best | Query Round of Best | Inputs @ Best |
 |---|---:|---:|---:|---:|---|
@@ -178,9 +178,14 @@ The optimisation results for all functions are summarised in the table below.
 | F7 | 6D | `1.364968` |`2.769198` |13| `[0.248004, 0.075584, 0.220421, 0.305477, 0.347138, 0.714349]` |
 | F8 | 8D | `9.598482` |`9.991800` |13| `[0.083747, 0.16894 , 0.162633, 0.164701, 0.809849, 0.457978, 0.22954 , 0.658543]` |
 
-The optimisation progression for each function is captured in the figure below
+The optimisation progression for each function is captured in the figure below:
+
+<img width="1375" height="1375" alt="Optimisation_progression_all" src="https://github.com/user-attachments/assets/3457bc8e-7d21-4e00-8b1d-4a329071ba6e" />
 
 
+Please note:
+- Function 1 negative values were manually floored to -130 in log space
+- Function 5 queries after identifying the optimum in round 6 were mostly targetting improved surrogate surface gradients and not necessarily trying to optimise the maximum value further (Hence the variation in outputs in later rounds)
 
 ---
 
