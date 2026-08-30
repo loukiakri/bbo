@@ -64,30 +64,30 @@ Examples include:
 
 ## Inputs and Outputs
 
-The model built receives a set of initial observations (inputs and corresponding outputs) and uses it to suggest a new higher performing next query point. The functions vary in dimensionality from 2D to 8D  and so does the initial observation sample size.
+The model built receives a set of initial observations (inputs and corresponding outputs) and uses it to suggest a new query point. Initial observation sample size varies per function.
 
-Model inputs
-* 2D numpy array of observation inputs of size (nsamples, ndims) 
+### Model inputs:
 
-$$ 
-\mathcal{X} = [[x_1,x_2, …x_{dims}], [x_1,x_2, …x_{dims}], …]
-$$
+2D NumPy array of observation inputs of size $(n_{samples}, n_{dims})$ 
 
-* 1D numpy array of observation outputs of size (nsamples)
+${X} = [[x_1,x_2, …x_{dims}], [x_1,x_2, …x_{dims}], …]$
 
-$$
-\mathcal{y} = [y_1, y_2, … y_{samples}] 
-$$
+1D NumPy array of observation outputs of size $(n_{samples},)$ 
 
-Example of 1 sample of observation inputs and outputs for a 3D function:
-Input  - [0.89, 0.81, 0.7]
-Output - [12.45]
+${y} = [y_1, y_2, … y_{samples}]$
 
-Model outputs:
+<ins>Example of 1 sample of observation inputs and outputs for a 3D function:</ins>
+- Input: [0.89, 0.81, 0.7]
+- Output: [12.45]
 
-A vector of size (ndims) representing the next suggested query point for each function.
-Example output query vector for a 3D function:
-Next query - $$ [0.96, 0.05, 0.65 ]$$
+### Model outputs:
+
+A vector of size $(n_{dims})$ representing the next suggested query point.
+
+${X} = [x_1,x_2, …x_{dims}]$
+
+<ins>Example output query vector for a 3D function:</ins>
+- Next query: [ 0.96, 0.05, 0.65 ]
 
 ---
 
