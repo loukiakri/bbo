@@ -3,7 +3,7 @@
 ## 1. Motivation
 
 ### Why was the dataset created?
-The dataset was created to capture the observations used in the optimisation of 8 unknown black box functions as part of a black box optimisation (BBO) project. The project objective was to maximise each individual function under a limited query budget of 12 evaluations.
+The dataset was created to capture the observations used in the optimisation of 8 unknown black box functions as part of a black box optimisation (BBO) project. The project objective was to maximise each individual function under a limited query budget of 13 evaluations.
 
 ### What task does it support? 
 The dataset supports Bayesian optimisation, surrogate modelling using gaussian process regressors, acquisition function tuning and optimisation and next candidate selection strategies for optimisation of black box functions.
@@ -11,6 +11,19 @@ The dataset supports Bayesian optimisation, surrogate modelling using gaussian p
 ---
 
 ## 2. Dataset Composition
+
+### Function Overview
+
+| Function | Dimensions | Initial Observations Number | Optimisation Goal | Function Description |
+|---|---:|---:|---:|---|
+| F1 | 2D | 10 | Maximise | Detection of contamination sources in a two-dimensional area, such as a radiation field, where only proximity yields a non-zero reading. |
+| F2 | 2D | 10 | Maximise | A mystery ML model, that takes two numbers as input and returns a log-likelihood score that needs to be maximised. Noisy outputs and many local peaks|
+| F3 | 3D | 15 | Maximise | A drug discovery project, testing combinations of three compounds to create a new medicine. Goal is to minimise side effects by optimising a transformed output (e.g. the negative of side effects). |
+| F4 | 4D | 30 | Maximise |Hyperparameter tuning for an ML model used for accelerating costly calculations related to optimally placing products across warehouses for a business with high online sales. Multiple local optima |
+| F5 | 4D | 20 | Maximise | A four-variable black-box function that represents the yield of a chemical process. The function is unimodal and the single peak where yield is maximised should be identified |
+| F6 | 5D | 20 | Maximise |A cake recipe is represented using a black-box function with five ingredient inputs that is evaluated by a final score where factor contributed negative points. Goal is to bring this function as close to zero as possible | 
+| F7 | 6D | 30 |Maximise |13| 
+| F8 | 8D | 40 |Maximise |13|
 
 The dataset consists of the initial observations prior to the start of the optimisation and the round by round observations after each new function evaluation was performed.
 
