@@ -4,7 +4,7 @@
 
 * 📄 **[Model Card](MODEL_CARD.md)** - Details on model architecture, evaluation metrics, and intended use.
 * 📊 **[Dataset Datasheet](MODEL_DATASHEET.md)** - Overview of training data, collection process.
-* 📄 **[Model Evolution]( MODEL_EVOLUTION.md)**  - Detailed breakdown of model additions for every optimisation round
+* :chart_with_upwards_trend: **[Model Evolution]( MODEL_EVOLUTION.md)**  - Detailed breakdown of model additions for every optimisation round
 
 ---
 
