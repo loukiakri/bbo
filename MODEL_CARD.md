@@ -40,15 +40,17 @@ Model use should be avoided:
 
 ## Model details and Strategy
 
-The model evolved throughout the duration of the project. Early rounds used simple single kernel Scikit learn implementation of Bayesian optimisation with the UCB acquisition function. In later rounds, more focus was spent on improving model fit and design space search by advancing to the BOtorch library and introducing:
+The model evolved throughout the duration of the project. Early rounds used simple single kernel Sci-kit learn implementation of Bayesian optimisation with the UCB acquisition function. In later rounds, more focus was spent on improving model fit and design space search by advancing to the BoTorch library and introducing:
 
 * Hyperparameter marginalisation
 * Proper probabilistic priors as well as sparse dataset specific priors for high dimensional functions such as SAAS
-* Multiple acquisition functions such as UCB, EI and Thompson sampling including advanced acquisition functions within BOtorch using Markov Chain Monte Carlo sampling.
+* Multiple acquisition functions such as UCB, EI, PI and Thompson sampling that are differentiable and can be gradient-based optimised.
+* Cross-validation (Loop-one-out and k-fold) techniques and emtrics for assessing model over/under confidence
 * Candidate selection tables summarising key metrics and performance across acquisition functions
-* More sophisticated visualisation techniques such as dimension parallel plots and contour slices
+* More sophisticated visualisation techniques such as dimension parallel plots, 2D contour slices of posterior mean, standard deviation and acquisition score as well as PCA space projections.
+* User defined trust region and exclusion zones for additional control of exploration/exploitation and local refinement
 
-A neural network model was created half way through the project to provide independent candidate suggestions. However the Gaussian Process model remained the main method used for query submissions.
+A neural network model was created half way through the project to provide independent candidate suggestions. However, the Gaussian Process model remained the main method used for query submissions.
 
 --- 
 
