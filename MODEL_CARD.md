@@ -95,7 +95,8 @@ Cross-validation metrics showing model over/under confidence were also taken int
 
 ### Limitations
 
-* Computational expense is high for large datasets. Significant slowdown expected for datasets with >1000 observations. Even at datasets of ~100 observations, high posterior sampling parameters can overflow local memory.
+* Computational expense is high for large datasets. Significant slowdown expected for datasets with >1000 observations. Even at datasets of ~100 observations, high posterior sampling parameters can overflow local memory and should be adjusted based on computational resources.
+* The default model setup can process moderate homegeneous noise however alternative priors and settings should be used for extremely noisy functions or functions where noise varies spatially within the domain.
 * Exploration/Exploitation acquisition function parameters and transition are problem specific and should be revised when applied to a new problem/function
 
 ---
