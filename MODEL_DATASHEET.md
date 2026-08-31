@@ -59,7 +59,7 @@ The dataset is sparse especially for the high dimensional functions. There are n
 
 ---
 
-## 3. Collection
+## 4. Collection
 
 ### Data Collection
 
@@ -85,7 +85,7 @@ The transition point was different for each function depending on function dimen
 
 ---
 
-## 4. Preprocessing & Uses
+## 5. Preprocessing & Uses
 
 ### Pre-processing
 
@@ -106,7 +106,7 @@ No other data cleaning or pre-processing steps were performed.
 
 ---
 
-## 5. Distribution & Maintenance
+## 6. Distribution & Maintenance
 
 ### Availability
 The dataset is stored on the BBO capstone GitHub repository. New query points are appended at the end of each optimisation round.
