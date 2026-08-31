@@ -70,7 +70,7 @@ Following the initial set of observations each new query was generated through t
 * Acquisition function evaluation output was used to provide a new candidate suggestion
 * Selected candidate was submitted and true function value returned
 * New observation was added to the existing dataset
-* 
+
 The process was repeated in the next query round.
 
 The timeframe of the project was 13 weeks. One evaluation per week for each function was permitted
@@ -89,7 +89,11 @@ The transition point was different for each function depending on function dimen
 
 ### Pre-processing
 
-Input variable scaling was applied where relevant. No other data cleaning or pre-processing steps were performed.
+* Inputs are already scaled to the unit cube. 
+* Outputs were standardised to zero mean and unit variance automatically within the model before fitting for improved surrogate modelling. 
+* Further processing was only performed on the Function 1 observation outputs by projecting them into log space to handle the large range variation and flooring negative values to -130 in the projected space. 
+
+No other data cleaning or pre-processing steps were performed.
 
 ### Recommended Uses
 * Surrogate modelling
