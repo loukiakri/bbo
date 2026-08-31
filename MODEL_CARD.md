@@ -2,11 +2,17 @@
 
 ## Model Overview
 
-Model name: Black Box Bayesian Optimiser
+**Model name:** Black Box Bayesian Optimiser
 
-Version: v1.0
+**Version:** v1.0
 
-Model Type: Sequential Bayesian optimisation using gaussian process regressors 
+**Model Type:** Sequential Bayesian optimisation using gaussian process regressors 
+
+**Model Inputs:** Multi-dimensional NumPy arrays capturing initial observations and evaluated query outputs
+
+**Model Outputs:** NumPy array with the input dimensions of the next query candidate suggestion 
+
+**Model Architecture:** BoTorch implementation of Bayesian optimisation with Gaussian Processes for single objective optimisation using standard and sparse axis priors and differentiable acquisition functions.
 
 ---
 
@@ -21,6 +27,7 @@ Some use case examples include:
 * Hyperparameter tuning
 * Engineering design optimisation via e.g simulation or low order model data 
 * Experimental data optimisation
+* Materials discovery
 
 ### Out-of-scope
 
@@ -49,11 +56,31 @@ A neural network model was created half way through the project to provide indep
 
 The main objective was to maximise each function. The global maximum was unknown hence any improvement over the initial observation dataset best point is considered beneficial.
 
-Overall, improvement has been recorded across all functions. Consistency in identification of good candidate points improved during later rounds where more data was available.
+Overall, improvement has been recorded across all functions as can be seen in the summary table below. Consistency in identification of good candidate points improved during later rounds where more data was available and the underlying model was improved and further calibrated.
 
-The main metric used to assess performance post – candidate submission was increase in function output over best initial observation. 
+| Function | Dimensions | Initial Observations Best | Optimisation Best | Query Round of Best | Inputs @ Best |
+|---|---:|---:|---:|---:|---|
+| F1 | 2D | `7.710875e-16` |`6.884216e-09` |10| `[0.723435, 0.678126]` |
+| F2 | 2D | `6.112052e-01` |`7.344425e-01` |12| `[0.695816, 0.273372]` |
+| F3 | 3D | `-3.483531e-02` |`-8.296981e-03` |13| `[0.350469, 0.714455, 0.41873]` |
+| F4 | 4D | `-4.025542` |`6.239079e-01` |7| `[0.418607, 0.404969, 0.426197, 0.405082]` |
+| F5 | 4D | `1.088860e+03` |`8.662405e+03` |6| `[0.999999, 0.999999, 0.999999, 0.999999]` |
+| F6 | 5D | `-7.142649e-01` |`-1.261755e-01` |13| `[0.390069, 0.353407, 0.691056, 0.742125, 0.111512]` |
+| F7 | 6D | `1.364968` |`2.769198` |13| `[0.248004, 0.075584, 0.220421, 0.305477, 0.347138, 0.714349]` |
+| F8 | 8D | `9.598482` |`9.991800` |13| `[0.083747, 0.16894 , 0.162633, 0.164701, 0.809849, 0.457978, 0.22954 , 0.658543]` |
 
-Candidate selection however, was based on a combination of posterior mean and standard deviation, predicted improvement, the exploration/exploitation settings and agreement between acquisition function suggestions in terms of location (distance between different acquisition candidates and between acquisition candidates and best observation).
+The main metric used to assess overall performance was increase in function output over best initial observation as well as subsequent improvement round by round.
+
+Candidate selection however, was based on a combination of metrics including:
+
+* Predicted posterior mean and standard deviation
+* Acquisition scores from different functions such as EI/UCB/PI/Thompson sampling predicting improvement
+* The exploration/exploitation settings and phase of the optimisation
+* Agreement/Disagreemnt between acquisition function suggestions in terms of location of next suggested point
+* Distance metrics between different acquisition candidates and between acquisition candidates and best observation
+* Acquisiton candidate cross-evaluation scores
+
+Cross-validation metrics showing model over/under confidence were also taken into account in every optimisation round to adjust model expectation and assess model reliability.
 
 --- 
 
