@@ -90,7 +90,7 @@ The transition point was different for each function depending on function dimen
 ### Pre-processing
 
 * Inputs are already scaled to the unit cube. 
-* Outputs were standardised to zero mean and unit variance automatically within the model before fitting for improved surrogate modelling. 
+* Outputs were standardised to zero mean and unit variance automatically within the model before fitting the GP for improved numerical stability and alignment/compatibility with GP prior assumptions. 
 * Further processing was only performed on the Function 1 observation outputs by projecting them into log space to handle the large range variation and flooring negative values to -130 in the projected space. 
 
 No other data cleaning or pre-processing steps were performed.
