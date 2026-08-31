@@ -39,7 +39,20 @@ Both inputs and outputs are continuous numerical values. Inputs range within the
 All data points are stored in NumPy arrays and text files
 
 ### Observations
-An individual observation consists of a pair of input and output variables. The inputs are represented by a vector with length equal to the function dimensions and the output is a single value representing the black box function output value at the specified input.
+
+Observations consist of pairs of input and output variables. The input arrays are dependent on function dimensions.
+
+Input: 2D NumPy array of observation inputs of size $(n_{samples}, n_{dims})$ 
+
+${X} = [[x_1,x_2, …x_{dims}], [x_1,x_2, …x_{dims}], …]$
+
+Output: 1D NumPy array of observation outputs of size $(n_{samples},)$ 
+
+${y} = [y_1, y_2, … y_{samples}]$
+
+<ins>Example of 1 sample of observation inputs and outputs for a 3D function:</ins>
+- Input: [0.89, 0.81, 0.7]
+- Output: [12.45]
 
 ### Gaps
 The dataset is sparse especially for the high dimensional functions. There are no missing values or NaNs that need to be removed/imputated.
@@ -57,15 +70,16 @@ Following the initial set of observations each new query was generated through t
 * Acquisition function evaluation output was used to provide a new candidate suggestion
 * Selected candidate was submitted and true function value returned
 * New observation was added to the existing dataset
+* 
 The process was repeated in the next query round.
 
-The timeframe of the project was 12 weeks. One evaluation per week for each function was permitted
+The timeframe of the project was 13 weeks. One evaluation per week for each function was permitted
 
 ### Strategy
 
 The optimisation strategy evolved within the duration of the project.
 
-Early rounds focused on exploration of the design space targeting reduction of overall uncertainty in the model fit. Later rounds transitioned into exploitation of the promising regions that were being progressively identified. 
+Early rounds focused on exploration of the design space targeting reduction of overall uncertainty. Later rounds transitioned into exploitation of the promising regions that were being progressively identified. 
 
 The transition point was different for each function depending on function dimensionality, the outputs of each round and model fit metrics. 
 
