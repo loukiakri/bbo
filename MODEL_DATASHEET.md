@@ -10,29 +10,31 @@ The dataset supports Bayesian optimisation, surrogate modelling using gaussian p
 
 ---
 
-## 2. Dataset Composition
+## 2. Function Overview
 
-### Function Overview
+All function descriptions, dimensionality and initial observation sample size, as provided for use in the capstone project, are summarised in the table below.
 
-| Function | Dimensions | Initial Observations Number | Optimisation Goal | Function Description |
-|---|---:|---:|---:|---|
+| Function | Dimensions | Initial Observation Number | Optimisation Goal | Function Description |
+|---|---|---|---|---|
 | F1 | 2D | 10 | Maximise | Detection of contamination sources in a two-dimensional area, such as a radiation field, where only proximity yields a non-zero reading. |
 | F2 | 2D | 10 | Maximise | A mystery ML model, that takes two numbers as input and returns a log-likelihood score that needs to be maximised. Noisy outputs and many local peaks|
 | F3 | 3D | 15 | Maximise | A drug discovery project, testing combinations of three compounds to create a new medicine. Goal is to minimise side effects by optimising a transformed output (e.g. the negative of side effects). |
 | F4 | 4D | 30 | Maximise |Hyperparameter tuning for an ML model used for accelerating costly calculations related to optimally placing products across warehouses for a business with high online sales. Multiple local optima |
 | F5 | 4D | 20 | Maximise | A four-variable black-box function that represents the yield of a chemical process. The function is unimodal and the single peak where yield is maximised should be identified |
 | F6 | 5D | 20 | Maximise |A cake recipe is represented using a black-box function with five ingredient inputs that is evaluated by a final score where factor contributed negative points. Goal is to bring this function as close to zero as possible | 
-| F7 | 6D | 30 |Maximise |13| 
-| F8 | 8D | 40 |Maximise |13|
+| F7 | 6D | 30 | Maximise | Optimisation of an ML model by tuning six hyperparameters. The goal is to find the combination of hyperparameters that yields the highest possible performance| 
+| F8 | 8D | 40 | Maximise | Optimisation of an eight-dimensional black-box function aiming to maximise function output |
 
-The dataset consists of the initial observations prior to the start of the optimisation and the round by round observations after each new function evaluation was performed.
+## 3. Dataset Composition
+
+The dataset consists of the initial observations prior to the start of the optimisation (for each function) and the round by round observations after each new function evaluation is performed.
 
 ### Contents
 
 * **Total Size / Scale:**
-The size of the original observation dataset varies between 10 – 40 points depending on the function. Overall dataset size after 12 evaluations increases to 22 – 62 observations. Black box function input dimensionality varies from 2 to 8.
+The size and dimensionality of the original observation dataset is as recorded in the table above for each function. By the end of the optimisation the observation dataset size increases by 13 points for all functions (e.g Function 1 started with 10 initial observations and the final dataset after optimisation completion will contain 23 observations).
 * **Data Types:**
-Both inputs and outputs are continuous numerical values. Inputs range within the unit cube [0,1]^d across all functions whereas output range can be very different and spans multiple orders of magnitude.
+Both inputs and outputs are continuous numerical values. Inputs range within the unit cube [0,1]^d across all functions whereas output range can be very different and is function specific spanning multiple orders of magnitude.
 * **File Formats:**
 All data points are stored in NumPy arrays and text files
 
