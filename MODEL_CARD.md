@@ -90,12 +90,12 @@ Cross-validation metrics showing model over/under confidence were also taken int
 
 ### Assumptions
 
-* Black box functions are continuous and sufficiently smooth
-* Most dimensions are weakly correlated to the function output (When SAAS prior is used)
+* Black box functions are continuous and sufficiently smooth. If the functions being modelled are suspected to have sharp discontinuities, the GP can predict artificial oscillations near abrupt changes and inflate uncertainty away from transitions driving the acquisition function into suboptimal spaces.
+* Most dimensions are weakly correlated to the function output (When SAAS prior is used). If more function dimensions strongly impact function output and the SAAS prior is used, possible underfitting occurs in the active subspace which can prevent true optimum identification/miss design space patterns.
 
 ### Limitations
 
-* Computational expense is high for large datasets. Significant slowdown expected for datasets with >1000 observations.
+* Computational expense is high for large datasets. Significant slowdown expected for datasets with >1000 observations. Even at datasets of ~100 observations, high posterior sampling parameters can overflow local memory.
 * Exploration/Exploitation acquisition function parameters and transition are problem specific and should be revised when applied to a new problem/function
 
 ---
