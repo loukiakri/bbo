@@ -42,6 +42,28 @@ Plot B: A PCA projection of all observations and best point on the two principal
 Plot C: Captures the changes in kernel lengthscale over the course of the optimisation along with the variability in that estimate. The lengthscales in rounds 1-3 come from the sci-kit learn model hence no variability band is available. From round 4 onwards the variability band is present as predicted from the posterior sampling of the BoTorch implementation.
 
 Plot D: On the left axis the metric plotted is a standard deviation fraction calculated via the standard deviation at the query point over the maximum standard deviation in the posterior during that round. This normalisation is used to infer exploration vs exploitation. If close to 1 it means the GP is exploring, if close to 0 it means the GP is exploiting. On this trace points that improved the incumbent are highlighted with green circles. On the right hand axis the model cross-validation NLPD metric is plotted as a relative measure of the improvement in the fit by the end of the optimisation compared to the first round.
- 
 
+---
+
+### F1-2D
+
+Please note: The initial observation function outputs were spanning several orders of magnitude hence a log10 transform was applied to shrink the range, prior to fitting the GP, such that more of the function patterns could be identified. This required manually flooring negative values to a low number (-130 in transformed space was chosen). 
+
+<img width="1687" height="1125" alt="F1" src="https://github.com/user-attachments/assets/cc49d4f0-66c0-4459-8b6d-85ec4e1737e4" />
+
+As seen in plot A, from round 8 the predictions improved considerably with rounds 8, 9, 10 and 12 matching more closely to the observations. This is in alignment with the length-scales in plot C showing stabilisation and clean convergence from the same round as well. 
+
+The PCA contour plot shows evidence of multimodality predicted by the GP with several parallel diagonal bright bands running across the projection, suggesting a ridge-structured landscape (This could be a byproduct of the large difference in lengthscales). As rounds progressed best performing queries settled on the highest mean predicted band.
+
+The standard deviation fraction of Plot D shows a genuine exploration phase up to round 8 (over-exploration) transitioning into exploitation towards rounds 9-10 (best point identified) followed by direct exploitation at rounds 11–13. The high value quoted at round 11 is a by-product of the normalisation of std with max std in the grid. It may look high but that is the selection of the most uncertain point within a bounded trust region that was implemented at round 11 to help drive the optimisation to a higher output. 
+
+The evaluation of the last query clearly shows that model fit remained unreliable for this function. The zoomed-in PCA projection demonstrates how over a very small distance, points decorrelate and can fall off the ridge edge easily.
+
+<img width="851" height="531" alt="F1 ZOOM" src="https://github.com/user-attachments/assets/0fd0276c-1390-4dc7-bfce-69854d161951" />
+
+As mentioned model performance was worse on function 1 out of all functions within the project. Even though the workflow operated correctly, eventually leading to improvement over the incumbent the decision of applying the log transform on raw outputs negatively impacted optimisation progression. The log floor, mapped nine genuinely different negative outputs onto one tied value creating a large cliff value drop. A stationary kernel absorbs this by shrinking the lengthscale globally (as is the case here) hence every F1 structure conclusion downstream was inherently affected. A better transform that would keep the -ve output values could have provided better directional signal for the GP to follow. Moreover, a trust region implementation earlier in the rounds would have helped reduction of over-exploration leading to an improved optimum. 
+
+---
+
+F2-2D
 
