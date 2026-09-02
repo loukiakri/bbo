@@ -140,3 +140,21 @@ Lengthscales show large variation in the 4th round after the switch to BoTorch b
 
 <img width="1687" height="1125" alt="F7 PCA" src="https://github.com/user-attachments/assets/3bb32b48-127d-4f25-8ad1-70b08ee34ede" />
 
+Function 7 had the strongest run in the whole project. The function output progression post round 7 shows a continuously increasing incumbent with considerable step gains in each round (8 improvements in 13 queries) . Predictions track observations closely but slightly under-predict. All of the above are indications of the surrogate  improving/learning every round as also attested by the falling NLPD curve. The slight under confidence suggests that the intervals were safe, but a better-calibrated model would have exploited harder and possibly gained more per query.
+
+The PCA plot shows a narrow, very sharp peak with clear clustering of points close to it. Given that the function was constantly evolving the exploration/exploitation strategy was biased towards increasing exploitation as shown in Plot D. 
+
+The effects of the SAAS prior usage are evident in the lengthscale magnitudes. After round 4 the dimensions separate cleanly: x3 stays longest at ~1–1.5 (least relevant) while x5 and x6 sit at ~0.2–0.35 (most active). That's the shrinkage prior identifying a small active subspace instead of spreading relevance evenly. The wide variability bands are a result of the sparsity of only 30-40 points in 6D.  
+
+---
+
+### F8 – 8D
+
+<img width="1687" height="1125" alt="F8 PCA" src="https://github.com/user-attachments/assets/26fd39a3-2867-415a-958c-81adae975bce" />
+
+
+
+
+
+
+
