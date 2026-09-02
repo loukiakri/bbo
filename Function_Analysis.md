@@ -78,7 +78,7 @@ The standard deviation fraction trace on Plot D partly captures this. As soon as
 
 ---
 
-F3 – 3D
+### F3 – 3D
 
 <img width="1687" height="1125" alt="F3 PCA" src="https://github.com/user-attachments/assets/eb58094e-a5c1-4b7f-b12d-705e1708162a" />
 
@@ -93,6 +93,21 @@ Candidate comparisons broadly agreed across rounds on this function converging t
 
 ---
 
+### F4 – 4D
+
+<img width="1687" height="1125" alt="F4 pca" src="https://github.com/user-attachments/assets/c4e6a94a-d4cf-45bb-b5e7-530a8b56b1ef" />
+
+In function 4,  twelve of thirteen queries beat the initial best. Predictions and observations track each other closely indicating that the GP was honest about estimated uncertianty. From round 6, prediction quality against observations is excellent as also attested by the drop in NLPD. Lengthscales stabilise early on in the campaign and stay consistent over ~10 rounds with tight bands. All of the above indicate a converged hyperparameter posterior. 
+
+In addition, it seems that no dimension dominates, with all four lengthscales being comparable, producing a smooth response on roughly the scale of the domain.
+
+The PCA plot points towards a unimodal structure (concentric contours around a single central peak ) with most of the queries clustered closely around the peak. 
+
+The standard deviation fraction trace shows exploitation early on. With such a large improvement over the incumbent in the first round, subsequent queries gravitated towards that region strongly, leading to heavy exploitation. 
+
+Candidate comparisons showed very high agreement on next suggested points across all rounds increasing confidence in the approach and optimum location. Round 12 is the exception where a Thompson sample was selected with a wider distance from other candidates as an experiment, due to the fact that successive observations produced diminishing returns. This exploratory probe returned a poor result hence direct exploitation was re-applied for the final round. Even though the probe did not improve on the best point, it served as additional evidence that exploiting the original identified region was the right approach. 
+
+---
 
 
 
