@@ -128,5 +128,15 @@ It should be noted that after the optimum was found in round 6, the rest of the 
 
 <img width="1687" height="1125" alt="F6 PCA" src="https://github.com/user-attachments/assets/6420b46c-3b16-44be-97aa-f803e02e9518" />
 
+12 of 13 queries beat the initial best with predictions and observations being close from round 4 onwards. Function output was still improving at round 13 suggesting further gains under extended budget. 
 
+A large jump in function output over the best initial observation in the first round biased the exploration/exploitation trade-off towards moderate exploitation early on, with later rounds transitioning into direct exploitation. This is attested by both the trace in plot D and the clustering in the contour of plot B. The increase in value of standard deviation fraction in round 13 was a redirected refinement and not re-exploration. The model adjusted to the surprise point of round 12 by becoming less certain and by guiding the search in a different local direction which eventually produced a better value. 
+
+Lengthscales show large variation in the 4th round after the switch to BoTorch but settle by round 7 implying a more stabilised fit which is also reflected by the consistently good predictions and reduction in model uncertainty and NLPD. 
+
+---
+
+### F7-6D
+
+<img width="1687" height="1125" alt="F7 PCA" src="https://github.com/user-attachments/assets/3bb32b48-127d-4f25-8ad1-70b08ee34ede" />
 
