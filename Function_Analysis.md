@@ -109,5 +109,24 @@ Candidate comparisons showed very high agreement on next suggested points across
 
 ---
 
+### F5 – 4D
+
+<img width="1687" height="1125" alt="F5 PCA" src="https://github.com/user-attachments/assets/344e70b5-a80b-4659-96bd-f8cb83f1c888" />
+
+In function 5, the optimisation campaign started with moderate exploitation as the function description suggested potential unimodality. Up to round 4 this strategy yielded fairly positive results, however there was a shift towards exploration to further examine the design space based on a push from multiple candidates suggesting corner solutions. 
+This is attested by the trace in plot D showing high standard deviation fraction from round 4. 
+
+Lengthscales for x1 and x2 spike at ~65 in rounds 4–6, then collapse to ~1 by round 7. The magnitude of the lengthscales significantly exceeds the domain dimension implying that the kernel is effectively flat, which means the GP behaves in a linear manner extrapolating to the domain corner which is what helped identify the corner optimum in round 6. However, the optimum value in round 6 was way higher than the predicted value, which prompted re-calibration. This along with further queries sampled to inform on the gradient within the rest of the domain improved lengthscale convergence.  When the optimum point was re-sampled the second time it was with a much better calibrated model.
+
+Panel B shows the suspected steep monotonic gradient with the best point found at the right edge sitting on the boundary of the searched region. 
+
+It should be noted that after the optimum was found in round 6, the rest of the queries outside of the optimum resampling were spent fully exploring, at first towards the other domain edges and then with a manual query in round 10. Towards later rounds (11,12) an exclusion zone was added (All candidate suggestions were consistently recommending the optimum location) to enforce exploration closer to the optimum point (excluding the optimum point) and resolve more of the gradient around it. Last query point was fully exploitative. 
+
+---
+
+### F6-5D
+
+<img width="1687" height="1125" alt="F6 PCA" src="https://github.com/user-attachments/assets/6420b46c-3b16-44be-97aa-f803e02e9518" />
+
 
 
