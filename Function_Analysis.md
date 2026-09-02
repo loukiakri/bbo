@@ -153,8 +153,15 @@ The effects of the SAAS prior usage are evident in the lengthscale magnitudes. A
 <img width="1687" height="1125" alt="F8 PCA" src="https://github.com/user-attachments/assets/26fd39a3-2867-415a-958c-81adae975bce" />
 
 
+11 of 13 queries beat the initial best. Predictions and observations show very good agreement from round 5 onwards.  A sharp drop in NLPD around the same point attests to the model fit improvement and calibration.
 
+The standard deviation fraction trace in plot D shows clear transition from exploration towards exploitation as the rounds progress. Two deliberate attempts at re-exploration initiated after subsequent queries returned minimal absolute gains, were performed in rounds 8 and 11. The attempts returned poor results shifting the strategy back to exploitation.
 
+Fitted lengthscales settled after round 4 but magnitudes indicated that they exceeded the domain width. This implies the model sees F8 as very smooth in every dimension, giving a weak, broadly distributed signal rather than a sharp dependency. 
+
+The PCA plot shows a broad yellow zone on the left  side rather than a point which is consistent with the suspected plateau near the optimum. This also explains why many queries around the optimum show diminishing returns.
+
+---
 
 
 
