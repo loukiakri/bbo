@@ -5,6 +5,7 @@
 * 📄 **[Model Card](MODEL_CARD.md)** - Details on model architecture, evaluation metrics, and intended use.
 * 📊 **[Dataset Datasheet](MODEL_DATASHEET.md)** - Overview of training data, collection process.
 * :chart_with_upwards_trend: **[Model Evolution]( MODEL_EVOLUTION.md)**  - Detailed breakdown of model additions for every optimisation round
+* 📄 **[Optimisation_analysis]( Optimisation_Analysis.md)** - Discussion of overall optimisation trends and individual function analysis
 
 ---
 
@@ -183,33 +184,7 @@ The optimisation progression for each function is captured in the figure below:
 <img width="1375" height="1375" alt="Optimisation_progression_all" src="https://github.com/user-attachments/assets/3457bc8e-7d21-4e00-8b1d-4a329071ba6e" />
 
 
-Please note:
-- Function 1 negative values were manually floored to -130 in log space
-- Function 5 queries after identifying the optimum in round 6 were mostly targetting improved surrogate surface gradients and not necessarily trying to optimise the maximum value further (Hence the variation in outputs in later rounds)
-
----
-
-## Installation
-
-### Requirements
-
-The project is built primarily using:
-- Python
-- PyTorch
-- BoTorch
-- GPyTorch
-- NumPy
-- SciPy
-- Matplotlib
-- Sci-kit learn
-
-### Clone the Repository
-
-```bash
-git clone https://github.com/loukiakri/bbo.git
-cd bbo
-```
-### Create a Virtual Environment
+A more detailed review of the optimisation overall, as well as in depth individual function analysis can be found in the 📄 **[Optimisation_analysis]( Optimisation_Analysis.md)**  document.
 
 ---
 
