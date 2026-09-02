@@ -65,5 +65,34 @@ As mentioned model performance was worse on function 1 out of all functions with
 
 ---
 
-F2-2D
+### F2-2D
+
+<img width="1687" height="1125" alt="F2" src="https://github.com/user-attachments/assets/6b3c6054-2e14-41eb-b6e5-b06de20e8e99" />
+
+
+Five out of 13 queries improved on the initial best. From round 4 predictions and observations aligned much better, as also attested by the lengthscale plot showing the lenghtscale magnitudes converging.
+
+The PCA plot shows evidence of a ridge like structure with pretty much all queries within the high mean region. As can be seen by the concentration of points there were two suspected high performing basins, one at the left edge of the high mean band and one close to where the best point was identified. Queries were split between these two high performing regions throughout the optimisation and they manifested as real candidate comparison disagreement when cross-evaluating different acquisition scores. 
+
+The standard deviation fraction trace on Plot D partly captures this. As soon as a good point was identified at round 4, the strategy switched to exploitation. When subsequent queries deteriorated in output the strategy became progressively more exploratory with the trace rising until a new optimum in round 12. Round 13 was still exploratory as a final check attempt on the other suspected basin.
+
+---
+
+F3 – 3D
+
+<img width="1687" height="1125" alt="F3 PCA" src="https://github.com/user-attachments/assets/eb58094e-a5c1-4b7f-b12d-705e1708162a" />
+
+
+From round 4, predictions and observations show good agreement, with lengthscales also converging. Seven of the last eight queries beat the initial best, so the late optimisation phase was consistently productive. The function keeps improving at the end of the optimisation suggesting further gains could have been made with an extended budget. 
+
+The spikes in lengthscales and the standard deviation fraction of plot D, observed at round 9, are a byproduct of sampler failure in the NUTS chain of the BoTorch implementation. Otherwise the model fit keeps improving as attested by the continuously dropping NLPD. 
+
+The standard deviation fraction trace in plot D shows a clear gradual transition from exploration to exploitation as the rounds progress, also reflected in the PCA plots showing point clustering around the incumbent. 
+
+Candidate comparisons broadly agreed across rounds on this function converging towards a single basin.
+
+---
+
+
+
 
